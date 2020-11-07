@@ -7,7 +7,6 @@ class StudentTest extends TestCase
 {
     public function testCreate()
     {
-
         $student = $this->getJsonFixture('StudentTest', 'create_student.json');
 
         $response = $this->json('post', '/student', $student);
@@ -29,6 +28,15 @@ class StudentTest extends TestCase
         $response = $this->json('delete', '/student/1');
 
         $response->assertStatus(Response::HTTP_OK);
+    }
+
+    public function testGet()
+    {
+        $actual = $this->json('get', '/student/1');
+
+        $expected = $this->getJsonFixture('StudentTest', 'get_student.json');
+
+        $this->assertEquals($expected, $actual->json());
     }
 
     public function testSearch()
