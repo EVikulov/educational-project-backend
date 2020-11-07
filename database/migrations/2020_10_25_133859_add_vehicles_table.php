@@ -4,22 +4,22 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMushroomsTable extends Migration
+class AddVehiclesTable extends Migration
 {
     public function up()
     {
-        Schema::create('mushrooms', function (Blueprint $table) {
+        Schema::create('vehicles', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->timestamps();
-            $table->string('name');
+            $table->string('model');
+            $table->string('brand');
             $table->string('type')->nullable();
-            $table->float('height');
-            $table->string('arial')->nullable();
+            $table->integer('release_year')->nullable();
+            $table->timestamps();
         });
     }
 
     public function down()
     {
-        Schema::dropIfExists('mushrooms');
+        Schema::dropIfExists('vehicles');
     }
 }
