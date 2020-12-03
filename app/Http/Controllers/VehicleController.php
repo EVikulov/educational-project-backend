@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\Student\DeleteVehicleRequest;
-use App\Http\Requests\Student\SearchVehicleRequest;
-use App\Http\Requests\Student\UpdateVehicleRequest;
+use App\Http\Requests\Vehicle\DeleteVehicleRequest;
+use App\Http\Requests\Vehicle\SearchVehicleRequest;
+use App\Http\Requests\Vehicle\UpdateVehicleRequest;
 use App\Http\Requests\Vehicle\CreateVehicleRequest;
 use App\Services\VehicleService;
 use Illuminate\Http\Response;

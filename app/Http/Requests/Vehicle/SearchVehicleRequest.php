@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Student;
+namespace App\Http\Requests\Vehicle;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
