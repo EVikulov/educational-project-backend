@@ -38,4 +38,31 @@ class AuthService
             'user' => $user
         ];
     }
+
+    public function exist($email)
+    {
+        return !empty($this->userModel->where('email', $email)->first());
+    }
+
+    public function createUser($data)
+    {
+        $this->userModel->insert([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => bcrypt('test')
+        ]);
+    }
+
+    public function getSocialUser($email)
+    {
+        $user = $this->userModel->where('email', $email)->first();
+        $token = \Tymon\JWTAuth\Facades\JWTAuth::fromUser($user);
+
+        return [
+            'token' => $token,
+            'ttl' => config('jwt.ttl'),
+            'refresh_ttl' => config('jwt.refresh_ttl'),
+            'user' => $user
+        ];
+    }
 }
